@@ -24,104 +24,96 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
-            this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.ActionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ChangeViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DefaultViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AdvancedViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ResultTextBox = new System.Windows.Forms.TextBox();
+            this.topMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.actionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defaultViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.advancedViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsGroupBox = new System.Windows.Forms.GroupBox();
-            this.powerActionButton = new System.Windows.Forms.Button();
-            this.sqrtActionButton = new System.Windows.Forms.Button();
-            this.reverseActionButton = new System.Windows.Forms.Button();
             this.sqrActionButton = new System.Windows.Forms.Button();
+            this.sqrtActionButton = new System.Windows.Forms.Button();
+            this.powerActionButton = new System.Windows.Forms.Button();
+            this.reverseActionButton = new System.Windows.Forms.Button();
             this.plusActionButton = new System.Windows.Forms.Button();
             this.subtractActionButton = new System.Windows.Forms.Button();
             this.divideActionButton = new System.Windows.Forms.Button();
             this.multiplyActionButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.actionsGroupBox = new System.Windows.Forms.GroupBox();
             this.equalsActionButton = new System.Windows.Forms.Button();
-            this.sevenNumButton = new System.Windows.Forms.Button();
-            this.eightNumButton = new System.Windows.Forms.Button();
-            this.nineNumButton = new System.Windows.Forms.Button();
+            this.keyBoardGroupBox = new System.Windows.Forms.GroupBox();
+            this.decimalDividerButton = new System.Windows.Forms.Button();
+            this.clearActionButton = new System.Windows.Forms.Button();
+            this.zeroNumButton = new System.Windows.Forms.Button();
             this.sixNumButton = new System.Windows.Forms.Button();
             this.fiveNumButton = new System.Windows.Forms.Button();
+            this.oneNumButton = new System.Windows.Forms.Button();
             this.fourNumButton = new System.Windows.Forms.Button();
             this.threeNumButton = new System.Windows.Forms.Button();
             this.twoNumButton = new System.Windows.Forms.Button();
-            this.oneNumButton = new System.Windows.Forms.Button();
-            this.zeroNumButton = new System.Windows.Forms.Button();
-            this.clearActionButton = new System.Windows.Forms.Button();
-            this.TopMenuStrip.SuspendLayout();
+            this.nineNumButton = new System.Windows.Forms.Button();
+            this.eightNumButton = new System.Windows.Forms.Button();
+            this.sevenNumButton = new System.Windows.Forms.Button();
+            this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.topMenuStrip.SuspendLayout();
             this.operationsGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.actionsGroupBox.SuspendLayout();
+            this.keyBoardGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TopMenuStrip
+            // topMenuStrip
             // 
-            this.TopMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionsMenuItem,
-            this.оПрограммеToolStripMenuItem});
-            this.TopMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.TopMenuStrip.Name = "TopMenuStrip";
-            this.TopMenuStrip.Size = new System.Drawing.Size(398, 24);
-            this.TopMenuStrip.TabIndex = 0;
-            this.TopMenuStrip.Text = "menuStrip1";
+            this.topMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actionsMenuItem,
+            this.aboutToolStripMenuItem});
+            this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.topMenuStrip.Name = "topMenuStrip";
+            this.topMenuStrip.Size = new System.Drawing.Size(398, 24);
+            this.topMenuStrip.TabIndex = 0;
+            this.topMenuStrip.Text = "menuStrip1";
             // 
-            // ActionsMenuItem
+            // actionsMenuItem
             // 
-            this.ActionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ChangeViewMenuItem,
-            this.ExitMenuItem});
-            this.ActionsMenuItem.Name = "ActionsMenuItem";
-            this.ActionsMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.ActionsMenuItem.Text = "Команды";
+            this.actionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeViewMenuItem,
+            this.exitMenuItem});
+            this.actionsMenuItem.Name = "actionsMenuItem";
+            this.actionsMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.actionsMenuItem.Text = "Команды";
             // 
-            // ChangeViewMenuItem
+            // changeViewMenuItem
             // 
-            this.ChangeViewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DefaultViewMenuItem,
-            this.AdvancedViewMenuItem});
-            this.ChangeViewMenuItem.Name = "ChangeViewMenuItem";
-            this.ChangeViewMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ChangeViewMenuItem.Text = "Сменить вид";
+            this.changeViewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.defaultViewMenuItem,
+            this.advancedViewMenuItem});
+            this.changeViewMenuItem.Name = "changeViewMenuItem";
+            this.changeViewMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.changeViewMenuItem.Text = "Сменить вид";
             // 
-            // DefaultViewMenuItem
+            // defaultViewMenuItem
             // 
-            this.DefaultViewMenuItem.Name = "DefaultViewMenuItem";
-            this.DefaultViewMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.DefaultViewMenuItem.Text = "Обычный";
+            this.defaultViewMenuItem.Name = "defaultViewMenuItem";
+            this.defaultViewMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.defaultViewMenuItem.Text = "Обычный";
             // 
-            // AdvancedViewMenuItem
+            // advancedViewMenuItem
             // 
-            this.AdvancedViewMenuItem.Name = "AdvancedViewMenuItem";
-            this.AdvancedViewMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.AdvancedViewMenuItem.Text = "Инженерный";
+            this.advancedViewMenuItem.Name = "advancedViewMenuItem";
+            this.advancedViewMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.advancedViewMenuItem.Text = "Инженерный";
             // 
-            // ExitMenuItem
+            // exitMenuItem
             // 
-            this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ExitMenuItem.Text = "Выход";
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.exitMenuItem.Text = "Выход";
             // 
-            // оПрограммеToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            // 
-            // ResultTextBox
-            // 
-            this.ResultTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResultTextBox.Location = new System.Drawing.Point(12, 27);
-            this.ResultTextBox.Name = "ResultTextBox";
-            this.ResultTextBox.Size = new System.Drawing.Size(374, 22);
-            this.ResultTextBox.TabIndex = 1;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.aboutToolStripMenuItem.Text = "О программе";
             // 
             // operationsGroupBox
             // 
@@ -138,16 +130,16 @@
             this.operationsGroupBox.TabStop = false;
             this.operationsGroupBox.Text = "Базовые команды";
             // 
-            // powerActionButton
+            // sqrActionButton
             // 
-            this.powerActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.powerActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.powerActionButton.Location = new System.Drawing.Point(6, 19);
-            this.powerActionButton.Name = "powerActionButton";
-            this.powerActionButton.Size = new System.Drawing.Size(86, 30);
-            this.powerActionButton.TabIndex = 0;
-            this.powerActionButton.Text = "POW";
-            this.powerActionButton.UseVisualStyleBackColor = true;
+            this.sqrActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sqrActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sqrActionButton.Location = new System.Drawing.Point(282, 19);
+            this.sqrActionButton.Name = "sqrActionButton";
+            this.sqrActionButton.Size = new System.Drawing.Size(86, 30);
+            this.sqrActionButton.TabIndex = 3;
+            this.sqrActionButton.Text = "SQR";
+            this.sqrActionButton.UseVisualStyleBackColor = true;
             // 
             // sqrtActionButton
             // 
@@ -160,6 +152,17 @@
             this.sqrtActionButton.Text = "SQRT";
             this.sqrtActionButton.UseVisualStyleBackColor = true;
             // 
+            // powerActionButton
+            // 
+            this.powerActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.powerActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.powerActionButton.Location = new System.Drawing.Point(6, 19);
+            this.powerActionButton.Name = "powerActionButton";
+            this.powerActionButton.Size = new System.Drawing.Size(86, 30);
+            this.powerActionButton.TabIndex = 0;
+            this.powerActionButton.Text = "POW";
+            this.powerActionButton.UseVisualStyleBackColor = true;
+            // 
             // reverseActionButton
             // 
             this.reverseActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -170,17 +173,6 @@
             this.reverseActionButton.TabIndex = 2;
             this.reverseActionButton.Text = "1 / X";
             this.reverseActionButton.UseVisualStyleBackColor = true;
-            // 
-            // sqrActionButton
-            // 
-            this.sqrActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sqrActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sqrActionButton.Location = new System.Drawing.Point(282, 19);
-            this.sqrActionButton.Name = "sqrActionButton";
-            this.sqrActionButton.Size = new System.Drawing.Size(86, 30);
-            this.sqrActionButton.TabIndex = 3;
-            this.sqrActionButton.Text = "SQR";
-            this.sqrActionButton.UseVisualStyleBackColor = true;
             // 
             // plusActionButton
             // 
@@ -226,40 +218,20 @@
             this.multiplyActionButton.Text = "×";
             this.multiplyActionButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // actionsGroupBox
             // 
-            this.groupBox1.Controls.Add(this.equalsActionButton);
-            this.groupBox1.Controls.Add(this.plusActionButton);
-            this.groupBox1.Controls.Add(this.divideActionButton);
-            this.groupBox1.Controls.Add(this.subtractActionButton);
-            this.groupBox1.Controls.Add(this.multiplyActionButton);
-            this.groupBox1.Location = new System.Drawing.Point(301, 116);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.groupBox1.Size = new System.Drawing.Size(85, 246);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Действия";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.clearActionButton);
-            this.groupBox2.Controls.Add(this.zeroNumButton);
-            this.groupBox2.Controls.Add(this.sixNumButton);
-            this.groupBox2.Controls.Add(this.fiveNumButton);
-            this.groupBox2.Controls.Add(this.oneNumButton);
-            this.groupBox2.Controls.Add(this.fourNumButton);
-            this.groupBox2.Controls.Add(this.threeNumButton);
-            this.groupBox2.Controls.Add(this.twoNumButton);
-            this.groupBox2.Controls.Add(this.nineNumButton);
-            this.groupBox2.Controls.Add(this.eightNumButton);
-            this.groupBox2.Controls.Add(this.sevenNumButton);
-            this.groupBox2.Location = new System.Drawing.Point(12, 116);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(283, 246);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Клавиатура";
+            this.actionsGroupBox.Controls.Add(this.equalsActionButton);
+            this.actionsGroupBox.Controls.Add(this.plusActionButton);
+            this.actionsGroupBox.Controls.Add(this.divideActionButton);
+            this.actionsGroupBox.Controls.Add(this.subtractActionButton);
+            this.actionsGroupBox.Controls.Add(this.multiplyActionButton);
+            this.actionsGroupBox.Location = new System.Drawing.Point(301, 116);
+            this.actionsGroupBox.Name = "actionsGroupBox";
+            this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.actionsGroupBox.Size = new System.Drawing.Size(85, 246);
+            this.actionsGroupBox.TabIndex = 8;
+            this.actionsGroupBox.TabStop = false;
+            this.actionsGroupBox.Text = "Действия";
             // 
             // equalsActionButton
             // 
@@ -272,35 +244,58 @@
             this.equalsActionButton.Text = "=";
             this.equalsActionButton.UseVisualStyleBackColor = true;
             // 
-            // sevenNumButton
+            // keyBoardGroupBox
             // 
-            this.sevenNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sevenNumButton.Location = new System.Drawing.Point(7, 19);
-            this.sevenNumButton.Name = "sevenNumButton";
-            this.sevenNumButton.Size = new System.Drawing.Size(86, 50);
-            this.sevenNumButton.TabIndex = 0;
-            this.sevenNumButton.Text = "7";
-            this.sevenNumButton.UseVisualStyleBackColor = true;
+            this.keyBoardGroupBox.Controls.Add(this.decimalDividerButton);
+            this.keyBoardGroupBox.Controls.Add(this.clearActionButton);
+            this.keyBoardGroupBox.Controls.Add(this.zeroNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.sixNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.fiveNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.oneNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.fourNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.threeNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.twoNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.nineNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.eightNumButton);
+            this.keyBoardGroupBox.Controls.Add(this.sevenNumButton);
+            this.keyBoardGroupBox.Location = new System.Drawing.Point(12, 116);
+            this.keyBoardGroupBox.Name = "keyBoardGroupBox";
+            this.keyBoardGroupBox.Size = new System.Drawing.Size(283, 246);
+            this.keyBoardGroupBox.TabIndex = 9;
+            this.keyBoardGroupBox.TabStop = false;
+            this.keyBoardGroupBox.Text = "Клавиатура";
             // 
-            // eightNumButton
+            // decimalDividerButton
             // 
-            this.eightNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.eightNumButton.Location = new System.Drawing.Point(99, 19);
-            this.eightNumButton.Name = "eightNumButton";
-            this.eightNumButton.Size = new System.Drawing.Size(86, 50);
-            this.eightNumButton.TabIndex = 1;
-            this.eightNumButton.Text = "8";
-            this.eightNumButton.UseVisualStyleBackColor = true;
+            this.decimalDividerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.decimalDividerButton.Location = new System.Drawing.Point(191, 187);
+            this.decimalDividerButton.Name = "decimalDividerButton";
+            this.decimalDividerButton.Size = new System.Drawing.Size(86, 50);
+            this.decimalDividerButton.TabIndex = 11;
+            this.decimalDividerButton.Text = ".";
+            this.decimalDividerButton.UseVisualStyleBackColor = true;
+            this.decimalDividerButton.Click += new System.EventHandler(this.decimalDividerButton_Click);
             // 
-            // nineNumButton
+            // clearActionButton
             // 
-            this.nineNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nineNumButton.Location = new System.Drawing.Point(191, 19);
-            this.nineNumButton.Name = "nineNumButton";
-            this.nineNumButton.Size = new System.Drawing.Size(86, 50);
-            this.nineNumButton.TabIndex = 2;
-            this.nineNumButton.Text = "9";
-            this.nineNumButton.UseVisualStyleBackColor = true;
+            this.clearActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearActionButton.Location = new System.Drawing.Point(7, 187);
+            this.clearActionButton.Name = "clearActionButton";
+            this.clearActionButton.Size = new System.Drawing.Size(86, 50);
+            this.clearActionButton.TabIndex = 10;
+            this.clearActionButton.Text = "CLR";
+            this.clearActionButton.UseVisualStyleBackColor = true;
+            this.clearActionButton.Click += new System.EventHandler(this.clearActionButton_Click);
+            // 
+            // zeroNumButton
+            // 
+            this.zeroNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.zeroNumButton.Location = new System.Drawing.Point(99, 187);
+            this.zeroNumButton.Name = "zeroNumButton";
+            this.zeroNumButton.Size = new System.Drawing.Size(86, 50);
+            this.zeroNumButton.TabIndex = 9;
+            this.zeroNumButton.Text = "0";
+            this.zeroNumButton.UseVisualStyleBackColor = true;
             // 
             // sixNumButton
             // 
@@ -321,6 +316,16 @@
             this.fiveNumButton.TabIndex = 4;
             this.fiveNumButton.Text = "5";
             this.fiveNumButton.UseVisualStyleBackColor = true;
+            // 
+            // oneNumButton
+            // 
+            this.oneNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.oneNumButton.Location = new System.Drawing.Point(7, 131);
+            this.oneNumButton.Name = "oneNumButton";
+            this.oneNumButton.Size = new System.Drawing.Size(86, 50);
+            this.oneNumButton.TabIndex = 6;
+            this.oneNumButton.Text = "1";
+            this.oneNumButton.UseVisualStyleBackColor = true;
             // 
             // fourNumButton
             // 
@@ -352,62 +357,73 @@
             this.twoNumButton.Text = "2";
             this.twoNumButton.UseVisualStyleBackColor = true;
             // 
-            // oneNumButton
+            // nineNumButton
             // 
-            this.oneNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.oneNumButton.Location = new System.Drawing.Point(7, 131);
-            this.oneNumButton.Name = "oneNumButton";
-            this.oneNumButton.Size = new System.Drawing.Size(86, 50);
-            this.oneNumButton.TabIndex = 6;
-            this.oneNumButton.Text = "1";
-            this.oneNumButton.UseVisualStyleBackColor = true;
+            this.nineNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nineNumButton.Location = new System.Drawing.Point(191, 19);
+            this.nineNumButton.Name = "nineNumButton";
+            this.nineNumButton.Size = new System.Drawing.Size(86, 50);
+            this.nineNumButton.TabIndex = 2;
+            this.nineNumButton.Text = "9";
+            this.nineNumButton.UseVisualStyleBackColor = true;
             // 
-            // zeroNumButton
+            // eightNumButton
             // 
-            this.zeroNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zeroNumButton.Location = new System.Drawing.Point(98, 187);
-            this.zeroNumButton.Name = "zeroNumButton";
-            this.zeroNumButton.Size = new System.Drawing.Size(178, 50);
-            this.zeroNumButton.TabIndex = 9;
-            this.zeroNumButton.Text = "0";
-            this.zeroNumButton.UseVisualStyleBackColor = true;
+            this.eightNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eightNumButton.Location = new System.Drawing.Point(99, 19);
+            this.eightNumButton.Name = "eightNumButton";
+            this.eightNumButton.Size = new System.Drawing.Size(86, 50);
+            this.eightNumButton.TabIndex = 1;
+            this.eightNumButton.Text = "8";
+            this.eightNumButton.UseVisualStyleBackColor = true;
             // 
-            // clearActionButton
+            // sevenNumButton
             // 
-            this.clearActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearActionButton.Location = new System.Drawing.Point(7, 187);
-            this.clearActionButton.Name = "clearActionButton";
-            this.clearActionButton.Size = new System.Drawing.Size(86, 50);
-            this.clearActionButton.TabIndex = 10;
-            this.clearActionButton.Text = "CLR";
-            this.clearActionButton.UseVisualStyleBackColor = true;
+            this.sevenNumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sevenNumButton.Location = new System.Drawing.Point(7, 19);
+            this.sevenNumButton.Name = "sevenNumButton";
+            this.sevenNumButton.Size = new System.Drawing.Size(86, 50);
+            this.sevenNumButton.TabIndex = 0;
+            this.sevenNumButton.Text = "7";
+            this.sevenNumButton.UseVisualStyleBackColor = true;
+            // 
+            // resultTextBox
+            // 
+            this.resultTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultTextBox.Location = new System.Drawing.Point(12, 28);
+            this.resultTextBox.Name = "resultTextBox";
+            this.resultTextBox.ReadOnly = true;
+            this.resultTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.resultTextBox.Size = new System.Drawing.Size(374, 22);
+            this.resultTextBox.TabIndex = 10;
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 372);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.resultTextBox);
+            this.Controls.Add(this.actionsGroupBox);
+            this.Controls.Add(this.keyBoardGroupBox);
             this.Controls.Add(this.operationsGroupBox);
-            this.Controls.Add(this.ResultTextBox);
-            this.Controls.Add(this.TopMenuStrip);
+            this.Controls.Add(this.topMenuStrip);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.TopMenuStrip;
+            this.MainMenuStrip = this.topMenuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.TopMost = true;
-            this.TopMenuStrip.ResumeLayout(false);
-            this.TopMenuStrip.PerformLayout();
+            this.topMenuStrip.ResumeLayout(false);
+            this.topMenuStrip.PerformLayout();
             this.operationsGroupBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.actionsGroupBox.ResumeLayout(false);
+            this.keyBoardGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,14 +431,13 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip TopMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem ActionsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ChangeViewMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DefaultViewMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AdvancedViewMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        public System.Windows.Forms.TextBox ResultTextBox;
+        private System.Windows.Forms.MenuStrip topMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem actionsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeViewMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultViewMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem advancedViewMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.GroupBox operationsGroupBox;
         private System.Windows.Forms.Button sqrActionButton;
         private System.Windows.Forms.Button sqrtActionButton;
@@ -432,8 +447,8 @@
         private System.Windows.Forms.Button subtractActionButton;
         private System.Windows.Forms.Button divideActionButton;
         private System.Windows.Forms.Button multiplyActionButton;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox actionsGroupBox;
+        private System.Windows.Forms.GroupBox keyBoardGroupBox;
         private System.Windows.Forms.Button equalsActionButton;
         private System.Windows.Forms.Button clearActionButton;
         private System.Windows.Forms.Button zeroNumButton;
@@ -446,6 +461,8 @@
         private System.Windows.Forms.Button nineNumButton;
         private System.Windows.Forms.Button eightNumButton;
         private System.Windows.Forms.Button sevenNumButton;
+        private System.Windows.Forms.Button decimalDividerButton;
+        public System.Windows.Forms.TextBox resultTextBox;
     }
 }
 
