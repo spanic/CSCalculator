@@ -88,25 +88,25 @@
             this.defaultViewMenuItem,
             this.advancedViewMenuItem});
             this.changeViewMenuItem.Name = "changeViewMenuItem";
-            this.changeViewMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.changeViewMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changeViewMenuItem.Text = "Сменить вид";
             // 
             // defaultViewMenuItem
             // 
             this.defaultViewMenuItem.Name = "defaultViewMenuItem";
-            this.defaultViewMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.defaultViewMenuItem.Size = new System.Drawing.Size(152, 22);
             this.defaultViewMenuItem.Text = "Обычный";
             // 
             // advancedViewMenuItem
             // 
             this.advancedViewMenuItem.Name = "advancedViewMenuItem";
-            this.advancedViewMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.advancedViewMenuItem.Size = new System.Drawing.Size(152, 22);
             this.advancedViewMenuItem.Text = "Инженерный";
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Выход";
             // 
             // aboutToolStripMenuItem
@@ -243,6 +243,7 @@
             this.equalsActionButton.TabIndex = 8;
             this.equalsActionButton.Text = "=";
             this.equalsActionButton.UseVisualStyleBackColor = true;
+            this.equalsActionButton.Click += new System.EventHandler(this.equalsActionButton_Click);
             // 
             // keyBoardGroupBox
             // 
@@ -418,7 +419,6 @@
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
-            this.TopMost = true;
             this.topMenuStrip.ResumeLayout(false);
             this.topMenuStrip.PerformLayout();
             this.operationsGroupBox.ResumeLayout(false);
