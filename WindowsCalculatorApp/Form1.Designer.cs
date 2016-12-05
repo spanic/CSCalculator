@@ -88,25 +88,25 @@
             this.defaultViewMenuItem,
             this.advancedViewMenuItem});
             this.changeViewMenuItem.Name = "changeViewMenuItem";
-            this.changeViewMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeViewMenuItem.Size = new System.Drawing.Size(144, 22);
             this.changeViewMenuItem.Text = "Сменить вид";
             // 
             // defaultViewMenuItem
             // 
             this.defaultViewMenuItem.Name = "defaultViewMenuItem";
-            this.defaultViewMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.defaultViewMenuItem.Size = new System.Drawing.Size(148, 22);
             this.defaultViewMenuItem.Text = "Обычный";
             // 
             // advancedViewMenuItem
             // 
             this.advancedViewMenuItem.Name = "advancedViewMenuItem";
-            this.advancedViewMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.advancedViewMenuItem.Size = new System.Drawing.Size(148, 22);
             this.advancedViewMenuItem.Text = "Инженерный";
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(144, 22);
             this.exitMenuItem.Text = "Выход";
             // 
             // aboutToolStripMenuItem
@@ -162,6 +162,7 @@
             this.powerActionButton.TabIndex = 0;
             this.powerActionButton.Text = "POW";
             this.powerActionButton.UseVisualStyleBackColor = true;
+            this.powerActionButton.Click += new System.EventHandler(this.powerActionButton_Click);
             // 
             // reverseActionButton
             // 
@@ -395,9 +396,10 @@
             this.resultTextBox.Location = new System.Drawing.Point(12, 28);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.ReadOnly = true;
-            this.resultTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.resultTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.resultTextBox.Size = new System.Drawing.Size(374, 22);
             this.resultTextBox.TabIndex = 10;
+            this.resultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BaseForm
             // 

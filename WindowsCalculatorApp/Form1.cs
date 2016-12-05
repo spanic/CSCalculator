@@ -50,7 +50,7 @@ namespace WindowsCalculatorApp {
         }
 
         private void clearActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.ClearResultTextBox();
+            resultTextBoxString = CalculatorEngine.ResetCurrentState();
         }
 
         private void decimalDividerButton_Click(object sender, EventArgs e) {
@@ -65,5 +65,13 @@ namespace WindowsCalculatorApp {
         private void equalsActionButton_Click(object sender, EventArgs e) {
             resultTextBoxString = CalculatorEngine.PerformCalculation();
         }
+
+        private void powerActionButton_Click(object sender, EventArgs e) {
+            resultTextBoxString = CalculatorEngine.SetAction(Actions.Power);
+        }
+
+        /* private void reverseActionButton_Click(object sender, EventArgs e) {
+            resultTextBoxString = CalculatorEngine.SetAction();
+        } */
     }
 }

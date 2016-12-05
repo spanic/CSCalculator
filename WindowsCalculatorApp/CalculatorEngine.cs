@@ -9,7 +9,8 @@ namespace WindowsCalculatorApp {
         Add, /* 0 */
         Subtract, /* 1 */
         Multiply, /* 2 */
-        Divide /* 3 */
+        Divide, /* 3 */
+        Power /* 4 */
     }
 
     public enum States : byte {
@@ -20,10 +21,28 @@ namespace WindowsCalculatorApp {
 
     public abstract class CalculatorEngine {
 
+        /* public class BinaryAcion {
+
+            public string symbol {
+                get { return this.symbol; }
+                private set { this.symbol = symbol; }
+            }
+
+            protected BinaryAcion(string symbol) {
+                this.symbol = symbol;
+            }
+
+            public static readonly BinaryAcion Add = new BinaryAcion("+");
+            BinaryAcion Subtract = new BinaryAcion("–");
+            BinaryAcion Multiply = new BinaryAcion("×");
+            BinaryAcion Divide = new BinaryAcion("/");
+            BinaryAcion Power = new BinaryAcion("POW");
+        } */
+
         public static States currentState = States.Initial;
         private static string resultTextBoxData = EMPTY_STRING_VALUE;
         private static double firstOperand;
-        private static Actions action;
+        private static Actions? action;
         private static double secondOperand;
         private static double result;
         private const string EMPTY_STRING_VALUE = "";
@@ -34,8 +53,8 @@ namespace WindowsCalculatorApp {
             if (currentState == States.Final) {
                 ResetCurrentState();
             }
-            if (resultTextBoxData == ZERO_STRING_VALUE
-                    || resultTextBoxData.Length == 0) {
+            if (resultTextBoxData == ZERO_STRING_VALUE || resultTextBoxData.Length == 0 
+                || firstOperand.ToString() == resultTextBoxData) {
                 return resultTextBoxData = pressedKeyNumber.ToString();
             } else
                 return resultTextBoxData = string.Concat(resultTextBoxData, pressedKeyNumber.ToString());
@@ -45,27 +64,35 @@ namespace WindowsCalculatorApp {
             return resultTextBoxData = ZERO_STRING_VALUE;
         }
 
-        private static void ResetCurrentState() {
+        private static void NullifyEverything() {
             currentState = States.Initial;
-            ClearResultTextBox();
+            firstOperand = 0;
+            secondOperand = 0;
+            action = null;
+            result = 0;
+        }
+
+        public static string ResetCurrentState() {
+            NullifyEverything();
+            return ClearResultTextBox();
         }
 
         public static string AddDecimalDivider() {
-            if (!resultTextBoxData.Contains(DECIMAL_DIVIDER))
+            if (!resultTextBoxData.Contains(DECIMAL_DIVIDER)) {
                 resultTextBoxData = string.Concat(resultTextBoxData, DECIMAL_DIVIDER);
-            currentState = States.Initial;
+            }
             return resultTextBoxData;
         }
 
         public static string SetAction(Actions actionToProceed) {
-            resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
-            if (currentState == States.Proceeding) {
+            if (currentState == States.Proceeding || currentState == States.Final)
                 PerformCalculation();
-            }
+            else
+                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
             firstOperand = Convert.ToDouble(resultTextBoxData);
             action = actionToProceed;
             currentState = States.Proceeding;
-            return ClearResultTextBox();
+            return resultTextBoxData;
         }
 
         public static string PerformCalculation() {
@@ -89,8 +116,16 @@ namespace WindowsCalculatorApp {
                 case Actions.Divide:
                     result = firstOperand / secondOperand;
                     break;
+                case Actions.Power:
+                    result = Math.Pow(firstOperand, secondOperand);
+                    break;
             }
             return resultTextBoxData = result.ToString();
+        }
+
+        public static string PerformSingleOperandCalculation() {
+
+            return resultTextBoxData;
         }
 
     }
