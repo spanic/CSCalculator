@@ -12,13 +12,6 @@ namespace WindowsCalculatorApp {
 
     public partial class BaseForm : Form {
 
-        private static Dictionary<char, Actions> actionSymbolsList = new Dictionary<char, Actions>() {
-            ['+'] = Actions.Add,
-            ['–'] = Actions.Subtract,
-            ['×'] = Actions.Multiply,
-            ['/'] = Actions.Divide
-        };
-
         public string resultTextBoxString {
             get { return resultTextBox.Text; }
             set { resultTextBox.Text = value; }
@@ -42,6 +35,11 @@ namespace WindowsCalculatorApp {
                     currentActionButton.Click += new EventHandler(anyActionButtonClickHandler);
             }
 
+            foreach (Button currentActionButton in operationsGroupBox.Controls.OfType<Button>()) {
+                if (currentActionButton.Text != "POW")
+                    currentActionButton.Click += new EventHandler(anyUnaryActionButtonClickHandler);
+            }
+
         }
 
         private void anyNumberButtonClickHandler(object sender, EventArgs e) {
@@ -58,20 +56,22 @@ namespace WindowsCalculatorApp {
         }
 
         private void anyActionButtonClickHandler(object sender, EventArgs e) {
-            char pressedKeyCharacter = char.Parse(((Button)sender).Text);
-            resultTextBoxString = CalculatorEngine.SetAction(actionSymbolsList[pressedKeyCharacter]);
+            CalculatorEngine.Action newAction = new CalculatorEngine.Action(((Button)sender).Text);
+            resultTextBoxString = CalculatorEngine.Action.SetAction(newAction);
         }
 
         private void equalsActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.PerformCalculation();
+            resultTextBoxString = CalculatorEngine.Action.PerformCalculation();
+        }
+
+        private void anyUnaryActionButtonClickHandler(object sender, EventArgs e) {
+            CalculatorEngine.UnaryAction newAction = new CalculatorEngine.UnaryAction(((Button)sender).Text);
+            resultTextBoxString = CalculatorEngine.UnaryAction.PerformUnaryCalculation(newAction);
         }
 
         private void powerActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.SetAction(Actions.Power);
+            CalculatorEngine.Action newAction = new CalculatorEngine.Action(((Button)sender).Text);
+            resultTextBoxString = CalculatorEngine.Action.SetAction(newAction);
         }
-
-        /* private void reverseActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.SetAction();
-        } */
     }
 }

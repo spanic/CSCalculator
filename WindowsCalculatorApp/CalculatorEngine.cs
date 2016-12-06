@@ -5,14 +5,6 @@ using System.Text;
 
 namespace WindowsCalculatorApp {
 
-    public enum Actions : byte {
-        Add, /* 0 */
-        Subtract, /* 1 */
-        Multiply, /* 2 */
-        Divide, /* 3 */
-        Power /* 4 */
-    }
-
     public enum States : byte {
         Initial, /* 0, while entering the first number */
         Proceeding, /* 1, after selecting any action */
@@ -21,28 +13,87 @@ namespace WindowsCalculatorApp {
 
     public abstract class CalculatorEngine {
 
-        /* public class BinaryAcion {
+        public class Action {
 
-            public string symbol {
-                get { return this.symbol; }
-                private set { this.symbol = symbol; }
+            private string alias;
+
+            public Action(string alias) {
+                this.alias = alias;
             }
 
-            protected BinaryAcion(string symbol) {
-                this.symbol = symbol;
+            private static readonly Action Add = new Action("+");
+            private static readonly Action Subtract = new Action("–");
+            private static readonly Action Multiply = new Action("×");
+            private static readonly Action Divide = new Action("/");
+            private static readonly Action Power = new Action("POW");
+
+            protected bool Equals(Action obj) {
+                if (obj == null) return false;
+                return this.alias == obj.alias;
             }
 
-            public static readonly BinaryAcion Add = new BinaryAcion("+");
-            BinaryAcion Subtract = new BinaryAcion("–");
-            BinaryAcion Multiply = new BinaryAcion("×");
-            BinaryAcion Divide = new BinaryAcion("/");
-            BinaryAcion Power = new BinaryAcion("POW");
-        } */
+            public static string SetAction(Action actionToProceed) {
+                if (currentState == States.Proceeding || currentState == States.Final)
+                    PerformCalculation();
+                else
+                    resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
+                firstOperand = Convert.ToDouble(resultTextBoxData);
+                action = actionToProceed;
+                currentState = States.Proceeding;
+                return resultTextBoxData;
+            }
+
+            public static string PerformCalculation() {
+                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
+                if (currentState == States.Initial || currentState == States.Final) {
+                    currentState = States.Final;
+                    return resultTextBoxData;
+                }
+                secondOperand = Convert.ToDouble(resultTextBoxData);
+                currentState = States.Final;
+                if (Add.Equals(action))
+                    result = firstOperand + secondOperand;
+                else if (Subtract.Equals(action))
+                    result = firstOperand - secondOperand;
+                else if (Multiply.Equals(action))
+                    result = firstOperand * secondOperand;
+                else if (Divide.Equals(action))
+                    result = firstOperand / secondOperand;
+                else if (Power.Equals(action))
+                    result = Math.Pow(firstOperand, secondOperand);
+                return resultTextBoxData = result.ToString();
+            }
+
+        }
+
+        public sealed class UnaryAction : Action {
+
+            public UnaryAction(string alias) : base(alias) {}
+
+            private static readonly UnaryAction Revert = new UnaryAction("1 / X");
+            private static readonly UnaryAction SQR = new UnaryAction("SQR");
+            private static readonly UnaryAction SQRT = new UnaryAction("SQRT");
+
+            public static string PerformUnaryCalculation(UnaryAction actionInstance) {
+                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
+                currentState = States.Final;
+                firstOperand = Convert.ToDouble(resultTextBoxData);
+                action = actionInstance;
+                if (Revert.Equals(action))
+                    result = 1 / firstOperand;
+                else if (SQR.Equals(action))
+                    result = Math.Pow(firstOperand, 2);
+                else if (SQRT.Equals(action))
+                    result = Math.Sqrt(firstOperand);
+                return resultTextBoxData = result.ToString();
+            }
+
+        }
 
         public static States currentState = States.Initial;
         private static string resultTextBoxData = EMPTY_STRING_VALUE;
         private static double firstOperand;
-        private static Actions? action;
+        private static Action action;
         private static double secondOperand;
         private static double result;
         private const string EMPTY_STRING_VALUE = "";
@@ -81,50 +132,6 @@ namespace WindowsCalculatorApp {
             if (!resultTextBoxData.Contains(DECIMAL_DIVIDER)) {
                 resultTextBoxData = string.Concat(resultTextBoxData, DECIMAL_DIVIDER);
             }
-            return resultTextBoxData;
-        }
-
-        public static string SetAction(Actions actionToProceed) {
-            if (currentState == States.Proceeding || currentState == States.Final)
-                PerformCalculation();
-            else
-                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
-            firstOperand = Convert.ToDouble(resultTextBoxData);
-            action = actionToProceed;
-            currentState = States.Proceeding;
-            return resultTextBoxData;
-        }
-
-        public static string PerformCalculation() {
-            resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
-            if (currentState == States.Initial || currentState == States.Final) {
-                currentState = States.Final;
-                return resultTextBoxData;
-            }
-            secondOperand = Convert.ToDouble(resultTextBoxData);
-            currentState = States.Final;
-            switch (action) {
-                case Actions.Add:
-                    result = firstOperand + secondOperand;
-                    break;
-                case Actions.Subtract:
-                    result = firstOperand - secondOperand;
-                    break;
-                case Actions.Multiply:
-                    result = firstOperand * secondOperand;
-                    break;
-                case Actions.Divide:
-                    result = firstOperand / secondOperand;
-                    break;
-                case Actions.Power:
-                    result = Math.Pow(firstOperand, secondOperand);
-                    break;
-            }
-            return resultTextBoxData = result.ToString();
-        }
-
-        public static string PerformSingleOperandCalculation() {
-
             return resultTextBoxData;
         }
 
