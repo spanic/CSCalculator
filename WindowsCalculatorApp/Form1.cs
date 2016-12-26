@@ -12,6 +12,13 @@ namespace WindowsCalculatorApp {
 
     public partial class BaseForm : Form {
 
+        private enum Layouts : byte {
+            Standart,
+            Engineering
+        }
+
+        private Layouts currentLayout;
+
         public string resultTextBoxString {
             get { return resultTextBox.Text; }
             set { resultTextBox.Text = value; }
@@ -20,6 +27,8 @@ namespace WindowsCalculatorApp {
         public BaseForm() {
 
             InitializeComponent();
+
+            applyLayout(Layouts.Standart);
 
             resultTextBoxString = CalculatorEngine.ShowNumber(0);
 
@@ -42,6 +51,18 @@ namespace WindowsCalculatorApp {
 
         }
 
+        private void applyLayout(Layouts newlLayout) {
+            currentLayout = newlLayout;
+            if (currentLayout == Layouts.Engineering) {
+                // ...
+                changeViewMenuItem.Checked = true;
+            } else if (currentLayout == Layouts.Standart) {
+                // ...
+                changeViewMenuItem.Checked = false;
+            }
+
+        }
+
         private void anyNumberButtonClickHandler(object sender, EventArgs e) {
             byte pressedKeyNumber = byte.Parse(((Button)sender).Text);
             resultTextBoxString = CalculatorEngine.ShowNumber(pressedKeyNumber);
@@ -57,11 +78,11 @@ namespace WindowsCalculatorApp {
 
         private void anyActionButtonClickHandler(object sender, EventArgs e) {
             CalculatorEngine.Action newAction = new CalculatorEngine.Action(((Button)sender).Text);
-            resultTextBoxString = CalculatorEngine.Action.SetAction(newAction);
+            resultTextBoxString = CalculatorEngine.BinaryAction.SetAction(newAction);
         }
 
         private void equalsActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.Action.PerformCalculation();
+            resultTextBoxString = CalculatorEngine.BinaryAction.PerformCalculation();
         }
 
         private void anyUnaryActionButtonClickHandler(object sender, EventArgs e) {
@@ -71,7 +92,15 @@ namespace WindowsCalculatorApp {
 
         private void powerActionButton_Click(object sender, EventArgs e) {
             CalculatorEngine.Action newAction = new CalculatorEngine.Action(((Button)sender).Text);
-            resultTextBoxString = CalculatorEngine.Action.SetAction(newAction);
+            resultTextBoxString = CalculatorEngine.BinaryAction.SetAction(newAction);
+        }
+
+        private void changeViewMenuItem_CheckedChanged(object sender, EventArgs e) {
+            if (changeViewMenuItem.Checked == true) {
+                applyLayout(Layouts.Engineering);
+            } else {
+                applyLayout(Layouts.Standart);
+            }
         }
     }
 }

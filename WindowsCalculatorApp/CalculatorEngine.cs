@@ -21,16 +21,46 @@ namespace WindowsCalculatorApp {
                 this.alias = alias;
             }
 
-            private static readonly Action Add = new Action("+");
-            private static readonly Action Subtract = new Action("–");
-            private static readonly Action Multiply = new Action("×");
-            private static readonly Action Divide = new Action("/");
-            private static readonly Action Power = new Action("POW");
-
             protected bool Equals(Action obj) {
                 if (obj == null) return false;
                 return this.alias == obj.alias;
             }
+
+        }
+
+        public sealed class UnaryAction : Action {
+
+            public UnaryAction(string alias) : base(alias) {}
+
+            private static readonly UnaryAction Revert = new UnaryAction("1 / X");
+            private static readonly UnaryAction SQR = new UnaryAction("SQR");
+            private static readonly UnaryAction SQRT = new UnaryAction("SQRT");
+
+            public static string PerformUnaryCalculation(UnaryAction actionInstance) {
+                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
+                currentState = States.Final;
+                firstOperand = Convert.ToDouble(resultTextBoxData);
+                action = actionInstance;
+                if (Revert.Equals(action))
+                    result = 1 / firstOperand;
+                else if (SQR.Equals(action))
+                    result = Math.Pow(firstOperand, 2);
+                else if (SQRT.Equals(action))
+                    result = Math.Sqrt(firstOperand);
+                return resultTextBoxData = result.ToString();
+            }
+
+        }
+
+        public sealed class BinaryAction : Action {
+
+            public BinaryAction(string alias) : base(alias) {}
+
+            private static readonly BinaryAction Add = new BinaryAction("+");
+            private static readonly BinaryAction Subtract = new BinaryAction("–");
+            private static readonly BinaryAction Multiply = new BinaryAction("×");
+            private static readonly BinaryAction Divide = new BinaryAction("/");
+            private static readonly BinaryAction Power = new BinaryAction("POW");
 
             public static string SetAction(Action actionToProceed) {
                 if (currentState == States.Proceeding || currentState == States.Final)
@@ -61,30 +91,6 @@ namespace WindowsCalculatorApp {
                     result = firstOperand / secondOperand;
                 else if (Power.Equals(action))
                     result = Math.Pow(firstOperand, secondOperand);
-                return resultTextBoxData = result.ToString();
-            }
-
-        }
-
-        public sealed class UnaryAction : Action {
-
-            public UnaryAction(string alias) : base(alias) {}
-
-            private static readonly UnaryAction Revert = new UnaryAction("1 / X");
-            private static readonly UnaryAction SQR = new UnaryAction("SQR");
-            private static readonly UnaryAction SQRT = new UnaryAction("SQRT");
-
-            public static string PerformUnaryCalculation(UnaryAction actionInstance) {
-                resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
-                currentState = States.Final;
-                firstOperand = Convert.ToDouble(resultTextBoxData);
-                action = actionInstance;
-                if (Revert.Equals(action))
-                    result = 1 / firstOperand;
-                else if (SQR.Equals(action))
-                    result = Math.Pow(firstOperand, 2);
-                else if (SQRT.Equals(action))
-                    result = Math.Sqrt(firstOperand);
                 return resultTextBoxData = result.ToString();
             }
 
@@ -132,6 +138,7 @@ namespace WindowsCalculatorApp {
             if (!resultTextBoxData.Contains(DECIMAL_DIVIDER)) {
                 resultTextBoxData = string.Concat(resultTextBoxData, DECIMAL_DIVIDER);
             }
+            if (currentState == States.Final) currentState = States.Initial;
             return resultTextBoxData;
         }
 

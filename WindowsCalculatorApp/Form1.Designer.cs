@@ -23,12 +23,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.topMenuStrip = new System.Windows.Forms.MenuStrip();
             this.actionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.advancedViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsGroupBox = new System.Windows.Forms.GroupBox();
@@ -56,6 +55,7 @@
             this.eightNumButton = new System.Windows.Forms.Button();
             this.sevenNumButton = new System.Windows.Forms.Button();
             this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.operationsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.topMenuStrip.SuspendLayout();
             this.operationsGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
@@ -84,29 +84,18 @@
             // 
             // changeViewMenuItem
             // 
-            this.changeViewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.defaultViewMenuItem,
-            this.advancedViewMenuItem});
+            this.changeViewMenuItem.CheckOnClick = true;
+            this.changeViewMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.changeViewMenuItem.Name = "changeViewMenuItem";
-            this.changeViewMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.changeViewMenuItem.Text = "Сменить вид";
-            // 
-            // defaultViewMenuItem
-            // 
-            this.defaultViewMenuItem.Name = "defaultViewMenuItem";
-            this.defaultViewMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.defaultViewMenuItem.Text = "Обычный";
-            // 
-            // advancedViewMenuItem
-            // 
-            this.advancedViewMenuItem.Name = "advancedViewMenuItem";
-            this.advancedViewMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.advancedViewMenuItem.Text = "Инженерный";
+            this.changeViewMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.changeViewMenuItem.Text = "Инженерный вид";
+            this.changeViewMenuItem.CheckedChanged += new System.EventHandler(this.changeViewMenuItem_CheckedChanged);
             // 
             // exitMenuItem
             // 
+            this.exitMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exitMenuItem.Text = "Выход";
             // 
             // aboutToolStripMenuItem
@@ -139,6 +128,7 @@
             this.sqrActionButton.Size = new System.Drawing.Size(86, 30);
             this.sqrActionButton.TabIndex = 3;
             this.sqrActionButton.Text = "SQR";
+            this.operationsToolTip.SetToolTip(this.sqrActionButton, "Возведение в квадрат");
             this.sqrActionButton.UseVisualStyleBackColor = true;
             // 
             // sqrtActionButton
@@ -150,6 +140,7 @@
             this.sqrtActionButton.Size = new System.Drawing.Size(86, 30);
             this.sqrtActionButton.TabIndex = 1;
             this.sqrtActionButton.Text = "SQRT";
+            this.operationsToolTip.SetToolTip(this.sqrtActionButton, "Извлечение квадратного корня");
             this.sqrtActionButton.UseVisualStyleBackColor = true;
             // 
             // powerActionButton
@@ -161,6 +152,7 @@
             this.powerActionButton.Size = new System.Drawing.Size(86, 30);
             this.powerActionButton.TabIndex = 0;
             this.powerActionButton.Text = "POW";
+            this.operationsToolTip.SetToolTip(this.powerActionButton, "Возведение в степень");
             this.powerActionButton.UseVisualStyleBackColor = true;
             this.powerActionButton.Click += new System.EventHandler(this.powerActionButton_Click);
             // 
@@ -173,6 +165,7 @@
             this.reverseActionButton.Size = new System.Drawing.Size(86, 30);
             this.reverseActionButton.TabIndex = 2;
             this.reverseActionButton.Text = "1 / X";
+            this.operationsToolTip.SetToolTip(this.reverseActionButton, "Вычисление обратного значения");
             this.reverseActionButton.UseVisualStyleBackColor = true;
             // 
             // plusActionButton
@@ -401,6 +394,10 @@
             this.resultTextBox.TabIndex = 10;
             this.resultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // operationsToolTip
+            // 
+            this.operationsToolTip.ToolTipTitle = "Описание:";
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,8 +433,6 @@
         private System.Windows.Forms.MenuStrip topMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem actionsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeViewMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defaultViewMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem advancedViewMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.GroupBox operationsGroupBox;
@@ -465,6 +460,7 @@
         private System.Windows.Forms.Button sevenNumButton;
         private System.Windows.Forms.Button decimalDividerButton;
         public System.Windows.Forms.TextBox resultTextBox;
+        private System.Windows.Forms.ToolTip operationsToolTip;
     }
 }
 
