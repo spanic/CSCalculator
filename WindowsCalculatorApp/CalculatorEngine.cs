@@ -42,12 +42,12 @@ namespace WindowsCalculatorApp {
                 firstOperand = Convert.ToDouble(resultTextBoxData);
                 action = actionInstance;
                 if (Revert.Equals(action))
-                    result = 1 / firstOperand;
+                    totalResult = 1 / firstOperand;
                 else if (SQR.Equals(action))
-                    result = Math.Pow(firstOperand, 2);
+                    totalResult = Math.Pow(firstOperand, 2);
                 else if (SQRT.Equals(action))
-                    result = Math.Sqrt(firstOperand);
-                return resultTextBoxData = result.ToString();
+                    totalResult = Math.Sqrt(firstOperand);
+                return resultTextBoxData = totalResult.ToString();
             }
 
         }
@@ -82,26 +82,28 @@ namespace WindowsCalculatorApp {
                 secondOperand = Convert.ToDouble(resultTextBoxData);
                 currentState = States.Final;
                 if (Add.Equals(action))
-                    result = firstOperand + secondOperand;
+                    totalResult = firstOperand + secondOperand;
                 else if (Subtract.Equals(action))
-                    result = firstOperand - secondOperand;
+                    totalResult = firstOperand - secondOperand;
                 else if (Multiply.Equals(action))
-                    result = firstOperand * secondOperand;
+                    totalResult = firstOperand * secondOperand;
                 else if (Divide.Equals(action))
-                    result = firstOperand / secondOperand;
+                    totalResult = firstOperand / secondOperand;
                 else if (Power.Equals(action))
-                    result = Math.Pow(firstOperand, secondOperand);
-                return resultTextBoxData = result.ToString();
+                    totalResult = Math.Pow(firstOperand, secondOperand);
+                return resultTextBoxData = totalResult.ToString();
             }
 
         }
 
         public static States currentState = States.Initial;
         private static string resultTextBoxData = EMPTY_STRING_VALUE;
+        private static string factorialCalculationTextBoxData = EMPTY_STRING_VALUE;
         private static double firstOperand;
         private static Action action;
         private static double secondOperand;
-        private static double result;
+        private static double totalResult;
+        private static ulong factorialCalculationResult;
         private const string EMPTY_STRING_VALUE = "";
         private const string ZERO_STRING_VALUE = "0";
         private const char DECIMAL_DIVIDER = ',';
@@ -121,17 +123,23 @@ namespace WindowsCalculatorApp {
             return resultTextBoxData = ZERO_STRING_VALUE;
         }
 
+        public static string ClearFactorialCalculationTextBox() {
+            return factorialCalculationTextBoxData = ZERO_STRING_VALUE;
+        }
+
         private static void NullifyEverything() {
             currentState = States.Initial;
             firstOperand = 0;
             secondOperand = 0;
             action = null;
-            result = 0;
+            totalResult = 0;
         }
 
         public static string ResetCurrentState() {
             NullifyEverything();
-            return ClearResultTextBox();
+            ClearResultTextBox();
+            ClearFactorialCalculationTextBox();
+            return ZERO_STRING_VALUE;
         }
 
         public static string AddDecimalDivider() {
@@ -140,6 +148,24 @@ namespace WindowsCalculatorApp {
             }
             if (currentState == States.Final) currentState = States.Initial;
             return resultTextBoxData;
+        }
+
+        public static string returnFactorial() {
+            int n;
+            if (int.TryParse(resultTextBoxData, out n))
+                if (n > 0) {
+                    factorialCalculationResult = calculateFactorial(n);
+                    factorialCalculationTextBoxData = factorialCalculationResult.ToString();
+                } else { /* Add error UserMessage ... */ }
+            currentState = States.Final;
+            return factorialCalculationTextBoxData;
+        }
+
+        private static ulong calculateFactorial(int n) {
+            ulong result;
+            if (n == 1) return 1;
+            result = calculateFactorial(n - 1) * (ulong) n;
+            return result;
         }
 
     }

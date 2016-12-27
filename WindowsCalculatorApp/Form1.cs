@@ -58,59 +58,7 @@ namespace WindowsCalculatorApp {
             if (currentLayout == Layouts.Engineering) {
 
                 this.Height = 508;
-
                 engineeringGroupBox.Visible = true;
-                
-                /* Using method above instead of direct Contlols creation
-                
-                // GroupBox
-                GroupBox engineeringGroupBox = new GroupBox();
-                engineeringGroupBox.Location = new Point(12, 117);
-                engineeringGroupBox.Size = new Size(374, 88);
-                engineeringGroupBox.Text = "Дополнительные команды";
-                this.Controls.Add(engineeringGroupBox);
-
-                // Factorial Button
-                Button factorialActionButton = new Button();
-                factorialActionButton.Location = new Point(6, 21);
-                factorialActionButton.Size = new Size(86, 30);
-                factorialActionButton.Text = "FACT";
-                operationsToolTip.SetToolTip(factorialActionButton, "Вычисление факториала");
-                engineeringGroupBox.Controls.Add(factorialActionButton);
-
-                // Cube Root Button
-                Button cubeRootActionButton = new Button();
-                engineeringGroupBox.Controls.Add(cubeRootActionButton);
-                cubeRootActionButton.Location = new Point(98, 21);
-                cubeRootActionButton.Size = new Size(86, 30);
-                cubeRootActionButton.Text = "CURT";
-                operationsToolTip.SetToolTip(cubeRootActionButton, 
-                    "Вычисление кубического корня");
-
-                // Solve Quadratic Equation Button
-                Button solveEquationActionButton = new Button();
-                engineeringGroupBox.Controls.Add(solveEquationActionButton);
-                solveEquationActionButton.Location = new Point(190, 21);
-                solveEquationActionButton.Size = new Size(178, 30);
-                solveEquationActionButton.Text = "Quadratic equation";
-                operationsToolTip.SetToolTip(solveEquationActionButton,
-                    "Ввод и нахождение корней квадратного уравнения");
-
-                // Factorial Result TextBox
-                TextBox factorialResultTextBox = new TextBox();
-                engineeringGroupBox.Controls.Add(factorialResultTextBox);
-                factorialResultTextBox.Location = new Point(7, 58);
-                factorialResultTextBox.Size = new Size(177, 22);
-                factorialResultTextBox.ReadOnly = true;
-                factorialResultTextBox.TextAlign = HorizontalAlignment.Right;
-
-                // Equation Result TextBox
-                TextBox equationResultTextBox = new TextBox();
-                engineeringGroupBox.Controls.Add(equationResultTextBox);
-                equationResultTextBox.Location = new Point(191, 58);
-                equationResultTextBox.Size = new Size(177, 22);
-                equationResultTextBox.ReadOnly = true; */
-
                 changeViewMenuItem.Checked = true;
 
             } else if (currentLayout == Layouts.Standart) {
@@ -129,7 +77,8 @@ namespace WindowsCalculatorApp {
         }
 
         private void clearActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = CalculatorEngine.ResetCurrentState();
+            resultTextBoxString = factorialResultTextBox.Text 
+                = CalculatorEngine.ResetCurrentState();
         }
 
         private void decimalDividerButton_Click(object sender, EventArgs e) {
@@ -161,6 +110,10 @@ namespace WindowsCalculatorApp {
             } else {
                 applyLayout(Layouts.Standart);
             }
+        }
+
+        private void factorialActionButton_Click(object sender, EventArgs e) {
+            factorialResultTextBox.Text = CalculatorEngine.returnFactorial();
         }
     }
 }

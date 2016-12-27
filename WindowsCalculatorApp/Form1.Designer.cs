@@ -418,6 +418,7 @@
             this.factorialActionButton.Text = "FACT";
             this.operationsToolTip.SetToolTip(this.factorialActionButton, "Вычисление факториала");
             this.factorialActionButton.UseVisualStyleBackColor = true;
+            this.factorialActionButton.Click += new System.EventHandler(this.factorialActionButton_Click);
             // 
             // cubeRootActionButton
             // 
@@ -538,7 +539,7 @@
         private System.Windows.Forms.Button eightNumButton;
         private System.Windows.Forms.Button sevenNumButton;
         private System.Windows.Forms.Button decimalDividerButton;
-        public System.Windows.Forms.TextBox resultTextBox;
+        private System.Windows.Forms.TextBox resultTextBox;
         private System.Windows.Forms.ToolTip operationsToolTip;
         private System.Windows.Forms.Button factorialActionButton;
         private System.Windows.Forms.Button cubeRootActionButton;
