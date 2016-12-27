@@ -56,10 +56,17 @@
             this.sevenNumButton = new System.Windows.Forms.Button();
             this.resultTextBox = new System.Windows.Forms.TextBox();
             this.operationsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.factorialActionButton = new System.Windows.Forms.Button();
+            this.cubeRootActionButton = new System.Windows.Forms.Button();
+            this.solveEquationActionButton = new System.Windows.Forms.Button();
+            this.factorialResultTextBox = new System.Windows.Forms.TextBox();
+            this.equationResultTextBox = new System.Windows.Forms.TextBox();
+            this.engineeringGroupBox = new System.Windows.Forms.GroupBox();
             this.topMenuStrip.SuspendLayout();
             this.operationsGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.keyBoardGroupBox.SuspendLayout();
+            this.engineeringGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // topMenuStrip
@@ -214,12 +221,13 @@
             // 
             // actionsGroupBox
             // 
+            this.actionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.actionsGroupBox.Controls.Add(this.equalsActionButton);
             this.actionsGroupBox.Controls.Add(this.plusActionButton);
             this.actionsGroupBox.Controls.Add(this.divideActionButton);
             this.actionsGroupBox.Controls.Add(this.subtractActionButton);
             this.actionsGroupBox.Controls.Add(this.multiplyActionButton);
-            this.actionsGroupBox.Location = new System.Drawing.Point(301, 116);
+            this.actionsGroupBox.Location = new System.Drawing.Point(301, 213);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.actionsGroupBox.Size = new System.Drawing.Size(85, 246);
@@ -241,6 +249,7 @@
             // 
             // keyBoardGroupBox
             // 
+            this.keyBoardGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.keyBoardGroupBox.Controls.Add(this.decimalDividerButton);
             this.keyBoardGroupBox.Controls.Add(this.clearActionButton);
             this.keyBoardGroupBox.Controls.Add(this.zeroNumButton);
@@ -253,7 +262,7 @@
             this.keyBoardGroupBox.Controls.Add(this.nineNumButton);
             this.keyBoardGroupBox.Controls.Add(this.eightNumButton);
             this.keyBoardGroupBox.Controls.Add(this.sevenNumButton);
-            this.keyBoardGroupBox.Location = new System.Drawing.Point(12, 116);
+            this.keyBoardGroupBox.Location = new System.Drawing.Point(12, 213);
             this.keyBoardGroupBox.Name = "keyBoardGroupBox";
             this.keyBoardGroupBox.Size = new System.Drawing.Size(283, 246);
             this.keyBoardGroupBox.TabIndex = 9;
@@ -398,11 +407,79 @@
             // 
             this.operationsToolTip.ToolTipTitle = "Описание:";
             // 
+            // factorialActionButton
+            // 
+            this.factorialActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.factorialActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.factorialActionButton.Location = new System.Drawing.Point(6, 21);
+            this.factorialActionButton.Name = "factorialActionButton";
+            this.factorialActionButton.Size = new System.Drawing.Size(86, 30);
+            this.factorialActionButton.TabIndex = 4;
+            this.factorialActionButton.Text = "FACT";
+            this.operationsToolTip.SetToolTip(this.factorialActionButton, "Вычисление факториала");
+            this.factorialActionButton.UseVisualStyleBackColor = true;
+            // 
+            // cubeRootActionButton
+            // 
+            this.cubeRootActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cubeRootActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cubeRootActionButton.Location = new System.Drawing.Point(98, 21);
+            this.cubeRootActionButton.Name = "cubeRootActionButton";
+            this.cubeRootActionButton.Size = new System.Drawing.Size(86, 30);
+            this.cubeRootActionButton.TabIndex = 5;
+            this.cubeRootActionButton.Text = "CURT";
+            this.operationsToolTip.SetToolTip(this.cubeRootActionButton, "Вычисление кубического корня");
+            this.cubeRootActionButton.UseVisualStyleBackColor = true;
+            // 
+            // solveEquationActionButton
+            // 
+            this.solveEquationActionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.solveEquationActionButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.solveEquationActionButton.Location = new System.Drawing.Point(190, 21);
+            this.solveEquationActionButton.Name = "solveEquationActionButton";
+            this.solveEquationActionButton.Size = new System.Drawing.Size(178, 30);
+            this.solveEquationActionButton.TabIndex = 6;
+            this.solveEquationActionButton.Text = "Quadratic Equation";
+            this.operationsToolTip.SetToolTip(this.solveEquationActionButton, "Ввод и нахождение корней квадратного уравнения");
+            this.solveEquationActionButton.UseVisualStyleBackColor = true;
+            // 
+            // factorialResultTextBox
+            // 
+            this.factorialResultTextBox.Location = new System.Drawing.Point(7, 58);
+            this.factorialResultTextBox.Name = "factorialResultTextBox";
+            this.factorialResultTextBox.ReadOnly = true;
+            this.factorialResultTextBox.Size = new System.Drawing.Size(177, 22);
+            this.factorialResultTextBox.TabIndex = 7;
+            this.factorialResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // equationResultTextBox
+            // 
+            this.equationResultTextBox.Location = new System.Drawing.Point(191, 58);
+            this.equationResultTextBox.Name = "equationResultTextBox";
+            this.equationResultTextBox.ReadOnly = true;
+            this.equationResultTextBox.Size = new System.Drawing.Size(177, 22);
+            this.equationResultTextBox.TabIndex = 8;
+            // 
+            // engineeringGroupBox
+            // 
+            this.engineeringGroupBox.Controls.Add(this.equationResultTextBox);
+            this.engineeringGroupBox.Controls.Add(this.factorialResultTextBox);
+            this.engineeringGroupBox.Controls.Add(this.solveEquationActionButton);
+            this.engineeringGroupBox.Controls.Add(this.cubeRootActionButton);
+            this.engineeringGroupBox.Controls.Add(this.factorialActionButton);
+            this.engineeringGroupBox.Location = new System.Drawing.Point(12, 117);
+            this.engineeringGroupBox.Name = "engineeringGroupBox";
+            this.engineeringGroupBox.Size = new System.Drawing.Size(374, 88);
+            this.engineeringGroupBox.TabIndex = 11;
+            this.engineeringGroupBox.TabStop = false;
+            this.engineeringGroupBox.Text = "Дополнительные команды";
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 372);
+            this.ClientSize = new System.Drawing.Size(398, 469);
+            this.Controls.Add(this.engineeringGroupBox);
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.actionsGroupBox);
             this.Controls.Add(this.keyBoardGroupBox);
@@ -423,6 +500,8 @@
             this.operationsGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.keyBoardGroupBox.ResumeLayout(false);
+            this.engineeringGroupBox.ResumeLayout(false);
+            this.engineeringGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,6 +540,12 @@
         private System.Windows.Forms.Button decimalDividerButton;
         public System.Windows.Forms.TextBox resultTextBox;
         private System.Windows.Forms.ToolTip operationsToolTip;
+        private System.Windows.Forms.Button factorialActionButton;
+        private System.Windows.Forms.Button cubeRootActionButton;
+        private System.Windows.Forms.Button solveEquationActionButton;
+        private System.Windows.Forms.TextBox factorialResultTextBox;
+        private System.Windows.Forms.TextBox equationResultTextBox;
+        public System.Windows.Forms.GroupBox engineeringGroupBox;
     }
 }
 
