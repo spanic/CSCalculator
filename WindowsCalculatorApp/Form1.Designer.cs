@@ -431,6 +431,7 @@
             this.cubeRootActionButton.Text = "CURT";
             this.operationsToolTip.SetToolTip(this.cubeRootActionButton, "Вычисление кубического корня");
             this.cubeRootActionButton.UseVisualStyleBackColor = true;
+            this.cubeRootActionButton.Click += new System.EventHandler(this.cubeRootActionButton_Click);
             // 
             // solveEquationActionButton
             // 
@@ -451,7 +452,8 @@
             this.factorialResultTextBox.ReadOnly = true;
             this.factorialResultTextBox.Size = new System.Drawing.Size(177, 22);
             this.factorialResultTextBox.TabIndex = 7;
-            this.factorialResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.factorialResultTextBox.Text = "Факториал числа (FACT)";
+            this.factorialResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // equationResultTextBox
             // 

@@ -115,5 +115,10 @@ namespace WindowsCalculatorApp {
         private void factorialActionButton_Click(object sender, EventArgs e) {
             factorialResultTextBox.Text = CalculatorEngine.returnFactorial();
         }
+
+        private void cubeRootActionButton_Click(object sender, EventArgs e) {
+            CalculatorEngine.UnaryAction cubicRootAction = new CalculatorEngine.UnaryAction(((Button)sender).Text);
+            resultTextBoxString = CalculatorEngine.UnaryAction.PerformUnaryCalculation(cubicRootAction);
+        }
     }
 }

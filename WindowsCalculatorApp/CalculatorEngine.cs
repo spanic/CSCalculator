@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace WindowsCalculatorApp {
 
@@ -35,6 +36,7 @@ namespace WindowsCalculatorApp {
             private static readonly UnaryAction Revert = new UnaryAction("1 / X");
             private static readonly UnaryAction SQR = new UnaryAction("SQR");
             private static readonly UnaryAction SQRT = new UnaryAction("SQRT");
+            private static readonly UnaryAction CURT = new UnaryAction("CURT");
 
             public static string PerformUnaryCalculation(UnaryAction actionInstance) {
                 resultTextBoxData = resultTextBoxData.TrimEnd(DECIMAL_DIVIDER);
@@ -45,8 +47,20 @@ namespace WindowsCalculatorApp {
                     totalResult = 1 / firstOperand;
                 else if (SQR.Equals(action))
                     totalResult = Math.Pow(firstOperand, 2);
-                else if (SQRT.Equals(action))
-                    totalResult = Math.Sqrt(firstOperand);
+                else if (SQRT.Equals(action)) {
+                    if (firstOperand < 0)
+                        MessageBox.Show(
+                            "Квадратный корень нельзя извлечь из отрицательного числа",
+                            "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1
+                            );
+                    else
+                        totalResult = Math.Sqrt(firstOperand);
+                } else if (CURT.Equals(action))
+                    totalResult = Math.Sign(firstOperand) * Math.Pow(
+                        Math.Abs(firstOperand), (1.0 / 3.0));
                 return resultTextBoxData = totalResult.ToString();
             }
 
@@ -124,7 +138,7 @@ namespace WindowsCalculatorApp {
         }
 
         public static string ClearFactorialCalculationTextBox() {
-            return factorialCalculationTextBoxData = ZERO_STRING_VALUE;
+            return factorialCalculationTextBoxData = "Факториал числа (FACT)";
         }
 
         private static void NullifyEverything() {
@@ -133,6 +147,7 @@ namespace WindowsCalculatorApp {
             secondOperand = 0;
             action = null;
             totalResult = 0;
+            factorialCalculationResult = 0;
         }
 
         public static string ResetCurrentState() {
@@ -151,17 +166,27 @@ namespace WindowsCalculatorApp {
         }
 
         public static string returnFactorial() {
-            int n;
-            if (int.TryParse(resultTextBoxData, out n))
+            uint n;
+            if (uint.TryParse(resultTextBoxData, out n)) {
                 if (n > 0) {
                     factorialCalculationResult = calculateFactorial(n);
                     factorialCalculationTextBoxData = factorialCalculationResult.ToString();
-                } else { /* Add error UserMessage ... */ }
+                }
+            } else {
+                MessageBox.Show(
+                    "Факториал нельзя вычислить из ненатурального числа",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1
+                    );
+                factorialCalculationTextBoxData = ClearFactorialCalculationTextBox();
+            }
             currentState = States.Final;
             return factorialCalculationTextBoxData;
         }
 
-        private static ulong calculateFactorial(int n) {
+        private static ulong calculateFactorial(uint n) {
             ulong result;
             if (n == 1) return 1;
             result = calculateFactorial(n - 1) * (ulong) n;
