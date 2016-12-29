@@ -49,13 +49,7 @@ namespace WindowsCalculatorApp {
                     totalResult = Math.Pow(firstOperand, 2);
                 else if (SQRT.Equals(action)) {
                     if (firstOperand < 0)
-                        MessageBox.Show(
-                            "Квадратный корень нельзя извлечь из отрицательного числа",
-                            "Ошибка",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error,
-                            MessageBoxDefaultButton.Button1
-                            );
+                        ShowError("Квадратный корень нельзя извлечь из отрицательного числа");
                     else
                         totalResult = Math.Sqrt(firstOperand);
                 } else if (CURT.Equals(action))
@@ -165,32 +159,50 @@ namespace WindowsCalculatorApp {
             return resultTextBoxData;
         }
 
-        public static string returnFactorial() {
+        public static string ReturnFactorial() {
             uint n;
             if (uint.TryParse(resultTextBoxData, out n)) {
                 if (n > 0) {
-                    factorialCalculationResult = calculateFactorial(n);
+                    factorialCalculationResult = CalculateFactorial(n);
                     factorialCalculationTextBoxData = factorialCalculationResult.ToString();
                 }
             } else {
-                MessageBox.Show(
-                    "Факториал нельзя вычислить из ненатурального числа",
-                    "Ошибка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1
-                    );
+                ShowError("Факториал нельзя вычислить из ненатурального числа");
                 factorialCalculationTextBoxData = ClearFactorialCalculationTextBox();
             }
             currentState = States.Final;
             return factorialCalculationTextBoxData;
         }
 
-        private static ulong calculateFactorial(uint n) {
+        private static ulong CalculateFactorial(uint n) {
             ulong result;
             if (n == 1) return 1;
-            result = calculateFactorial(n - 1) * (ulong) n;
+            result = CalculateFactorial(n - 1) * n;
             return result;
+        }
+
+        public static string SolveQuadraticEquation(double firstParameter, double secondParameter,
+            double thirdParameter, double fourthParameter) {
+            double discriminant = Math.Pow(secondParameter, 2) - 4 * firstParameter * (thirdParameter - fourthParameter);
+            if (discriminant < 0) return "Корни — комплексные числа";
+            else if (discriminant == 0)
+                return "Корень: " + (-1 * secondParameter / (2 * firstParameter));
+            else
+                return "К. №1: " + Math.Round(
+                    ((-1 * secondParameter + Math.Sqrt(discriminant)) / 2 * firstParameter),
+                    3, MidpointRounding.AwayFromZero) + "; К. №2: " + Math.Round((
+                    (-1 * secondParameter - Math.Sqrt(discriminant)) / 2 * firstParameter),
+                    3, MidpointRounding.AwayFromZero);
+        }
+
+        private static void ShowError(string errorText) {
+            MessageBox.Show(
+                    errorText,
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1
+                );
         }
 
     }

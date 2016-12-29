@@ -113,12 +113,27 @@ namespace WindowsCalculatorApp {
         }
 
         private void factorialActionButton_Click(object sender, EventArgs e) {
-            factorialResultTextBox.Text = CalculatorEngine.returnFactorial();
+            factorialResultTextBox.Text = CalculatorEngine.ReturnFactorial();
         }
 
         private void cubeRootActionButton_Click(object sender, EventArgs e) {
             CalculatorEngine.UnaryAction cubicRootAction = new CalculatorEngine.UnaryAction(((Button)sender).Text);
             resultTextBoxString = CalculatorEngine.UnaryAction.PerformUnaryCalculation(cubicRootAction);
+        }
+
+        private void solveEquationActionButton_Click(object sender, EventArgs e) {
+            inputEqParametersForm secondForm = new inputEqParametersForm();
+            if (secondForm.ShowDialog() != DialogResult.OK) return;
+            equationResultTextBox.Text = CalculatorEngine.SolveQuadraticEquation(
+                double.Parse(secondForm.firstSummandTextBox.Text),
+                double.Parse(secondForm.secondSummandTextBox.Text),
+                double.Parse(secondForm.thirdSummandTextBox.Text),
+                double.Parse(secondForm.equationResultTextBox.Text)
+                );
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

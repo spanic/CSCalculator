@@ -104,6 +104,7 @@
             this.exitMenuItem.Name = "exitMenuItem";
             this.exitMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exitMenuItem.Text = "Выход";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -444,6 +445,7 @@
             this.solveEquationActionButton.Text = "Quadratic Equation";
             this.operationsToolTip.SetToolTip(this.solveEquationActionButton, "Ввод и нахождение корней квадратного уравнения");
             this.solveEquationActionButton.UseVisualStyleBackColor = true;
+            this.solveEquationActionButton.Click += new System.EventHandler(this.solveEquationActionButton_Click);
             // 
             // factorialResultTextBox
             // 
@@ -462,6 +464,7 @@
             this.equationResultTextBox.ReadOnly = true;
             this.equationResultTextBox.Size = new System.Drawing.Size(177, 22);
             this.equationResultTextBox.TabIndex = 8;
+            this.equationResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engineeringGroupBox
             // 
