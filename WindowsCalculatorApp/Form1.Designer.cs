@@ -29,7 +29,6 @@
             this.actionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsGroupBox = new System.Windows.Forms.GroupBox();
             this.sqrActionButton = new System.Windows.Forms.Button();
             this.sqrtActionButton = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@
             this.factorialActionButton = new System.Windows.Forms.Button();
             this.cubeRootActionButton = new System.Windows.Forms.Button();
             this.solveEquationActionButton = new System.Windows.Forms.Button();
-            this.factorialResultTextBox = new System.Windows.Forms.TextBox();
             this.equationResultTextBox = new System.Windows.Forms.TextBox();
             this.engineeringGroupBox = new System.Windows.Forms.GroupBox();
             this.topMenuStrip.SuspendLayout();
@@ -72,8 +70,7 @@
             // topMenuStrip
             // 
             this.topMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.actionsMenuItem,
-            this.aboutToolStripMenuItem});
+            this.actionsMenuItem});
             this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.topMenuStrip.Name = "topMenuStrip";
             this.topMenuStrip.Size = new System.Drawing.Size(398, 24);
@@ -105,12 +102,6 @@
             this.exitMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exitMenuItem.Text = "Выход";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.aboutToolStripMenuItem.Text = "О программе";
             // 
             // operationsGroupBox
             // 
@@ -447,29 +438,18 @@
             this.solveEquationActionButton.UseVisualStyleBackColor = true;
             this.solveEquationActionButton.Click += new System.EventHandler(this.solveEquationActionButton_Click);
             // 
-            // factorialResultTextBox
-            // 
-            this.factorialResultTextBox.Location = new System.Drawing.Point(7, 58);
-            this.factorialResultTextBox.Name = "factorialResultTextBox";
-            this.factorialResultTextBox.ReadOnly = true;
-            this.factorialResultTextBox.Size = new System.Drawing.Size(177, 22);
-            this.factorialResultTextBox.TabIndex = 7;
-            this.factorialResultTextBox.Text = "Факториал числа (FACT)";
-            this.factorialResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // equationResultTextBox
             // 
-            this.equationResultTextBox.Location = new System.Drawing.Point(191, 58);
+            this.equationResultTextBox.Location = new System.Drawing.Point(6, 58);
             this.equationResultTextBox.Name = "equationResultTextBox";
             this.equationResultTextBox.ReadOnly = true;
-            this.equationResultTextBox.Size = new System.Drawing.Size(177, 22);
+            this.equationResultTextBox.Size = new System.Drawing.Size(362, 22);
             this.equationResultTextBox.TabIndex = 8;
             this.equationResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engineeringGroupBox
             // 
             this.engineeringGroupBox.Controls.Add(this.equationResultTextBox);
-            this.engineeringGroupBox.Controls.Add(this.factorialResultTextBox);
             this.engineeringGroupBox.Controls.Add(this.solveEquationActionButton);
             this.engineeringGroupBox.Controls.Add(this.cubeRootActionButton);
             this.engineeringGroupBox.Controls.Add(this.factorialActionButton);
@@ -519,7 +499,6 @@
         private System.Windows.Forms.ToolStripMenuItem actionsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeViewMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.GroupBox operationsGroupBox;
         private System.Windows.Forms.Button sqrActionButton;
         private System.Windows.Forms.Button sqrtActionButton;
@@ -549,7 +528,6 @@
         private System.Windows.Forms.Button factorialActionButton;
         private System.Windows.Forms.Button cubeRootActionButton;
         private System.Windows.Forms.Button solveEquationActionButton;
-        private System.Windows.Forms.TextBox factorialResultTextBox;
         private System.Windows.Forms.TextBox equationResultTextBox;
         public System.Windows.Forms.GroupBox engineeringGroupBox;
     }

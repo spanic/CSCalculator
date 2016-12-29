@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsCalculatorApp {
     public partial class inputEqParametersForm : Form {
+
         public inputEqParametersForm() {
             InitializeComponent();
         }
 
         private void multiplierTextBox_KeyPress(object sender, KeyPressEventArgs e) {
+
             if (e.KeyChar == '.') e.KeyChar = ',';
+
             if (e.KeyChar != 22) /* Ctrl + V */
                 e.Handled = !Char.IsDigit(e.KeyChar) /* Not digit */ 
                     && (
@@ -47,6 +43,7 @@ namespace WindowsCalculatorApp {
                         && !((TextBox)sender).SelectedText.Contains(",")
                     );
             }
+
         }
 
     }

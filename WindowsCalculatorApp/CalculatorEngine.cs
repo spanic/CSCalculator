@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WindowsCalculatorApp {
@@ -131,10 +129,6 @@ namespace WindowsCalculatorApp {
             return resultTextBoxData = ZERO_STRING_VALUE;
         }
 
-        public static string ClearFactorialCalculationTextBox() {
-            return factorialCalculationTextBoxData = "Факториал числа (FACT)";
-        }
-
         private static void NullifyEverything() {
             currentState = States.Initial;
             firstOperand = 0;
@@ -147,7 +141,6 @@ namespace WindowsCalculatorApp {
         public static string ResetCurrentState() {
             NullifyEverything();
             ClearResultTextBox();
-            ClearFactorialCalculationTextBox();
             return ZERO_STRING_VALUE;
         }
 
@@ -159,16 +152,16 @@ namespace WindowsCalculatorApp {
             return resultTextBoxData;
         }
 
+        private delegate ulong AsyncFactorial(uint n);
+
         public static string ReturnFactorial() {
             uint n;
             if (uint.TryParse(resultTextBoxData, out n)) {
-                if (n > 0) {
-                    factorialCalculationResult = CalculateFactorial(n);
-                    factorialCalculationTextBoxData = factorialCalculationResult.ToString();
-                }
+                AsyncFactorial asyncFactorialCalculation = new AsyncFactorial(CalculateFactorial);
+                AsyncCallback callback = new AsyncCallback(FactorialCallback);
+                asyncFactorialCalculation.BeginInvoke(n, callback, asyncFactorialCalculation);
             } else {
                 ShowError("Факториал нельзя вычислить из ненатурального числа");
-                factorialCalculationTextBoxData = ClearFactorialCalculationTextBox();
             }
             currentState = States.Final;
             return factorialCalculationTextBoxData;
@@ -178,7 +171,15 @@ namespace WindowsCalculatorApp {
             ulong result;
             if (n == 1) return 1;
             result = CalculateFactorial(n - 1) * n;
+            System.Threading.Thread.Sleep(500); /* Long operation imitation */
             return result;
+        }
+
+        private static void FactorialCallback(IAsyncResult operationResult) {
+            AsyncFactorial factiorialDelegate = (AsyncFactorial)operationResult.AsyncState;
+            factorialCalculationResult = factiorialDelegate.EndInvoke(operationResult);
+            factorialCalculationTextBoxData = factorialCalculationResult.ToString();
+            ShowInfo("Значение факториала введенного числа: " + factorialCalculationTextBoxData);
         }
 
         public static string SolveQuadraticEquation(double firstParameter, double secondParameter,
@@ -202,6 +203,16 @@ namespace WindowsCalculatorApp {
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1
+                );
+        }
+
+        private static void ShowInfo(string informationText) {
+            MessageBox.Show(
+                informationText,
+                "Информация",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1
                 );
         }
 

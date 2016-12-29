@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsCalculatorApp {
@@ -77,8 +71,7 @@ namespace WindowsCalculatorApp {
         }
 
         private void clearActionButton_Click(object sender, EventArgs e) {
-            resultTextBoxString = factorialResultTextBox.Text 
-                = CalculatorEngine.ResetCurrentState();
+            resultTextBoxString = CalculatorEngine.ResetCurrentState();
         }
 
         private void decimalDividerButton_Click(object sender, EventArgs e) {
@@ -113,7 +106,7 @@ namespace WindowsCalculatorApp {
         }
 
         private void factorialActionButton_Click(object sender, EventArgs e) {
-            factorialResultTextBox.Text = CalculatorEngine.ReturnFactorial();
+            CalculatorEngine.ReturnFactorial();
         }
 
         private void cubeRootActionButton_Click(object sender, EventArgs e) {
@@ -135,5 +128,6 @@ namespace WindowsCalculatorApp {
         private void exitMenuItem_Click(object sender, EventArgs e) {
             this.Close();
         }
+
     }
 }
